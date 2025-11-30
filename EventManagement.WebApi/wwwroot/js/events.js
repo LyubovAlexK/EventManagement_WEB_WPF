@@ -98,10 +98,14 @@ class EventsManager {
 
         console.log(`Sort state: column=${this.sortState.column}, direction=${this.sortState.direction}`);
 
-        // Сортируем события
+        // Сортируем события - используем camelCase свойства
         this.events.sort((a, b) => {
-            let aValue = a[column];
-            let bValue = b[column];
+            // Преобразуем PascalCase в camelCase для свойств
+            const camelCaseColumn = this.pascalToCamel(column);
+            let aValue = a[camelCaseColumn];
+            let bValue = b[camelCaseColumn];
+
+            console.log(`Sorting: aValue=${aValue}, bValue=${bValue}`);
 
             // Для числовых колонок
             if (column.includes('Budget') || column.includes('Guests') || column.includes('Id') || column === 'ClientCount') {
@@ -135,6 +139,11 @@ class EventsManager {
         this.updateSortIndicators();
 
         this.showNotification(`Таблица отсортирована по колонке "${this.getColumnDisplayName(column)}" (${this.sortState.direction === 'asc' ? 'по возрастанию' : 'по убыванию'})`, 'info');
+    }
+
+    // Преобразование PascalCase в camelCase
+    pascalToCamel(str) {
+        return str.charAt(0).toLowerCase() + str.slice(1);
     }
 
     // Парсинг чисел с учетом возможных null/undefined
@@ -299,8 +308,6 @@ class EventsManager {
         console.log(`Displaying ${events.length} events in table`);
 
         events.forEach((event, index) => {
-            console.log(`Processing event ${index + 1}:`, event);
-
             const row = document.createElement('tr');
             row.dataset.eventId = event.eventId;
 

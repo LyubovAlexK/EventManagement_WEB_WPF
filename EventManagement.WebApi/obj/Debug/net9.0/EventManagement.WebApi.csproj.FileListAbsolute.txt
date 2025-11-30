@@ -162,4 +162,4 @@ D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\r
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\rfgp9a9s74-ex4aguijp1.gz
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\wdbn30gwk4-17hjwzp4c1.gz
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\vi9qn6bmus-22ange7297.gz
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\6me0s8d0we-oeyhpgc52f.gz
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\6me0s8d0we-0kiyohx6k3.gz

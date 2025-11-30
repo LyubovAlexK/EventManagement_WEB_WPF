@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|solutionrelative:eventmanagement.webapi\\wwwroot\\js\\events.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|d:\\diti\\\u0442\u0435\u0445\\eventmanagementsolution\\eventmanagement.webapi\\wwwroot\\js\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|solutionrelative:eventmanagement.webapi\\wwwroot\\js\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|d:\\diti\\\u0442\u0435\u0445\\eventmanagementsolution\\eventmanagement.webapi\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|solutionrelative:eventmanagement.webapi\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -19,10 +23,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|d:\\diti\\\u0442\u0435\u0445\\eventmanagementsolution\\eventmanagement.webapi\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|solutionrelative:eventmanagement.webapi\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|d:\\diti\\\u0442\u0435\u0445\\eventmanagementsolution\\eventmanagement.webapi\\wwwroot\\js\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|solutionrelative:eventmanagement.webapi\\wwwroot\\js\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3DA37678-21BD-4968-BA5D-4D6201AB95C3}|EventManagement.WebApi\\EventManagement.WebApi.csproj|d:\\diti\\\u0442\u0435\u0445\\eventmanagementsolution\\eventmanagement.webapi\\wwwroot\\js\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -78,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Authentication.xaml.cs",
               "DocumentMoniker": "D:\\DITI\\\u0442\u0435\u0445\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml.cs",
               "RelativeDocumentMoniker": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml.cs",
@@ -86,20 +86,18 @@
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T18:39:53.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T18:39:53.862Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Authentication.xaml",
               "DocumentMoniker": "D:\\DITI\\\u0442\u0435\u0445\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml",
               "RelativeDocumentMoniker": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml",
               "ToolTip": "D:\\DITI\\\u0442\u0435\u0445\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml",
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\Authentication.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-30T18:39:51.237Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T18:39:51.237Z"
             },
             {
               "$type": "Document",
@@ -111,8 +109,7 @@
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\ViewModels\\ClientsPanelViewModel.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAiwJsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T18:16:02.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T18:16:02.861Z"
             },
             {
               "$type": "Document",
@@ -124,8 +121,7 @@
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\CategoryPanel.xaml.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAwwC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T18:02:19.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T18:02:19.49Z"
             },
             {
               "$type": "Document",
@@ -136,8 +132,7 @@
               "ToolTip": "D:\\DITI\\\u0442\u0435\u0445\\try\\EventManagmentApp\\EventManagmentApp\\Views\\CategoryPanel.xaml",
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\CategoryPanel.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-30T18:02:16.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T18:02:16.318Z"
             },
             {
               "$type": "Document",
@@ -149,8 +144,7 @@
               "RelativeToolTip": "EventManagement.WebApi\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T17:50:15.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:50:15.526Z"
             },
             {
               "$type": "Document",
@@ -162,8 +156,7 @@
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\AddEditPanel.xaml.cs",
               "ViewState": "AgIAACkCAAAAAAAAAAAQwEUCAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T17:45:40.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:45:40.005Z"
             },
             {
               "$type": "Document",
@@ -174,8 +167,7 @@
               "ToolTip": "D:\\DITI\\\u0442\u0435\u0445\\try\\EventManagmentApp\\EventManagmentApp\\Views\\AddEditPanel.xaml",
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\Views\\AddEditPanel.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-30T17:45:28.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:45:28.736Z"
             },
             {
               "$type": "Document",
@@ -187,12 +179,11 @@
               "RelativeToolTip": "..\\try\\EventManagmentApp\\EventManagmentApp\\ViewModels\\EventsPanelViewModel.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T17:45:14.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:45:14.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "EventsController.cs",
               "DocumentMoniker": "D:\\DITI\\\u0442\u0435\u0445\\EventManagementSolution\\EventManagement.WebApi\\Controllers\\EventsController.cs",
               "RelativeDocumentMoniker": "EventManagement.WebApi\\Controllers\\EventsController.cs",
@@ -200,8 +191,7 @@
               "RelativeToolTip": "EventManagement.WebApi\\Controllers\\EventsController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAQwA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T17:31:14.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:31:14.978Z"
             },
             {
               "$type": "Document",
@@ -213,12 +203,11 @@
               "RelativeToolTip": "EventManagement.WebApi\\wwwroot\\index.html",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAAALEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-30T17:14:14.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:14:14.713Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "style.css",
               "DocumentMoniker": "D:\\DITI\\\u0442\u0435\u0445\\EventManagementSolution\\EventManagement.WebApi\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "EventManagement.WebApi\\wwwroot\\css\\style.css",
@@ -226,18 +215,17 @@
               "RelativeToolTip": "EventManagement.WebApi\\wwwroot\\css\\style.css",
               "ViewState": "AgIAAJsAAAAAAAAAAAAYwKcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-30T17:13:38.401Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:13:38.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "auth.js",
               "DocumentMoniker": "D:\\DITI\\\u0442\u0435\u0445\\EventManagementSolution\\EventManagement.WebApi\\wwwroot\\js\\auth.js",
               "RelativeDocumentMoniker": "EventManagement.WebApi\\wwwroot\\js\\auth.js",
               "ToolTip": "D:\\DITI\\\u0442\u0435\u0445\\EventManagementSolution\\EventManagement.WebApi\\wwwroot\\js\\auth.js",
               "RelativeToolTip": "EventManagement.WebApi\\wwwroot\\js\\auth.js",
-              "ViewState": "AgIAAN0AAAAAAAAAAAAYwAEBAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-30T17:10:56.421Z",
               "EditorCaption": ""
@@ -252,8 +240,7 @@
               "RelativeToolTip": "EventManagement.WebApi\\wwwroot\\js\\app.js",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwCAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-30T17:10:48.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:10:48.976Z"
             },
             {
               "$type": "Document",
@@ -265,8 +252,7 @@
               "RelativeToolTip": "EventManagement.WebApi\\Controllers\\AuthController.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAcwEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T17:10:22.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T17:10:22.259Z"
             },
             {
               "$type": "Document",
@@ -276,7 +262,7 @@
               "RelativeDocumentMoniker": "EventManagement.WebApi\\wwwroot\\js\\events.js",
               "ToolTip": "D:\\DITI\\\u0442\u0435\u0445\\EventManagementSolution\\EventManagement.WebApi\\wwwroot\\js\\events.js",
               "RelativeToolTip": "EventManagement.WebApi\\wwwroot\\js\\events.js",
-              "ViewState": "AgIAADsDAAAAAAAAAAAkwF4DAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAJoBAAAAAAAAAAArwLYBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-30T16:52:05.862Z",
               "EditorCaption": ""
@@ -291,8 +277,7 @@
               "RelativeToolTip": "EventManagement.Data\\ApplicationContext.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAUwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T16:51:45.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T16:51:45.002Z"
             }
           ]
         }
