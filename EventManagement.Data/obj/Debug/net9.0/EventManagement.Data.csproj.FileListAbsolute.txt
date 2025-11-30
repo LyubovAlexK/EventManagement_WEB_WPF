@@ -1,0 +1,14 @@
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\bin\Debug\net9.0\EventManagement.Data.deps.json
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\bin\Debug\net9.0\EventManagement.Data.runtimeconfig.json
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\bin\Debug\net9.0\EventManagement.Data.dll
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\bin\Debug\net9.0\EventManagement.Data.pdb
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.csproj.AssemblyReference.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.AssemblyInfoInputs.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.AssemblyInfo.cs
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.csproj.CoreCompileInputs.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.dll
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\refint\EventManagement.Data.dll
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.pdb
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.genruntimeconfig.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\ref\EventManagement.Data.dll
