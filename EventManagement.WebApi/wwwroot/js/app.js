@@ -1,29 +1,59 @@
-// Главный файл приложения - Демо-режим
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 АИС Планирование мероприятий initialized - Demo Mode');
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('=== DOM CONTENT LOADED ===');
     initApp();
 });
 
-// Глобальные переменные
 let eventsManager = null;
 
 function initApp() {
+    console.log('=== 🚀 INIT APP START ===');
+
+    // Проверим основные элементы DOM
+    console.log('🏷️ Auth page:', document.getElementById('auth-page'));
+    console.log('🏷️ App page:', document.getElementById('app-page'));
+    console.log('🏷️ Events table:', document.getElementById('events-table'));
+    console.log('🏷️ Events tbody:', document.getElementById('events-tbody'));
+
     initGlobalHandlers();
-    
-    // Инициализируем EventsManager и делаем его глобально доступным
-    eventsManager = new EventsManager();
-    window.eventsManager = eventsManager;
-    
-    console.log('App initialized with eventsManager:', eventsManager);
+
+    // Даем время на авторизацию
+    setTimeout(() => {
+        console.log('👤 Auth manager user:', window.authManager?.currentUser);
+        console.log('📦 EventsManager available:', typeof window.EventsManager);
+
+        if (window.EventsManager) {
+            console.log('🛠️ Creating EventsManager instance...');
+            window.eventsManager = new EventsManager();
+
+            // Принудительно загружаем события через 1 секунду
+            setTimeout(() => {
+                console.log('🔄 Forcing events load...');
+                if (window.eventsManager && window.eventsManager.loadEvents) {
+                    window.eventsManager.loadEvents();
+                } else {
+                    console.error('❌ EventsManager not properly initialized');
+                }
+            }, 1000);
+        }
+    }, 500);
+
+    console.log('=== 🚀 INIT APP END ===');
 }
 
 // Глобальная функция для уведомлений
 function showNotification(message, type = 'info') {
+    // Удаляем существующие уведомления
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    });
+
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
-    // Убедимся, что уведомление поверх всех элементов
+
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -35,8 +65,9 @@ function showNotification(message, type = 'info') {
         z-index: 10000;
         max-width: 300px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        animation: slideInRight 0.3s ease-out;
     `;
-    
+
     if (type === 'error') {
         notification.style.background = '#EF4444';
     } else if (type === 'success') {
@@ -44,11 +75,11 @@ function showNotification(message, type = 'info') {
     } else if (type === 'warning') {
         notification.style.background = '#F59E0B';
     } else {
-        notification.style.background = '#6B7280';
+        notification.style.background = '#3B82F6';
     }
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         if (notification.parentElement) {
             notification.remove();
@@ -98,7 +129,7 @@ function showEventReminder(eventData) {
             <div class="reminder-text">
                 <strong>${eventData.message}</strong>
                 <div style="margin: 5px 0; font-size: 13px;">${eventData.eventName}</div>
-                <small>Начинается: ${new Date(eventData.startTime).toLocaleString('ru-RU')}</small>
+                <small>Начинается: ${formatDateTime(eventData.startTime)}</small>
             </div>
             <button class="reminder-close">×</button>
         </div>
@@ -117,23 +148,12 @@ function showEventReminder(eventData) {
     `;
 
     const closeBtn = reminder.querySelector('.reminder-close');
-    closeBtn.style.cssText = `
-        background: none;
-        border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        padding: 0;
-        margin-left: 10px;
-    `;
-
     closeBtn.addEventListener('click', () => {
         reminder.remove();
     });
 
     remindersContainer.appendChild(reminder);
 
-    // Автоматическое скрытие через 10 секунд
     setTimeout(() => {
         if (reminder.parentElement) {
             reminder.remove();
@@ -143,16 +163,17 @@ function showEventReminder(eventData) {
 
 // Глобальные обработчики
 function initGlobalHandlers() {
-    // Закрытие модальных окон по клику вне области
+    // Закрытие модальных окон
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal')) {
-            if (eventsManager) {
-                eventsManager.closeModals();
-            }
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
         }
     });
 
-    // Предотвращение закрытия при клике внутри модального окна
+    // Предотвращение закрытия при клике на контент модального окна
     document.querySelectorAll('.modal-content').forEach(content => {
         content.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -163,17 +184,15 @@ function initGlobalHandlers() {
     document.addEventListener('error', (e) => {
         if (e.target.tagName === 'IMG') {
             console.warn('Image failed to load:', e.target.src);
-            // Устанавливаем fallback иконку или скрываем
             e.target.style.display = 'none';
         }
     }, true);
 
-    // Адаптация для мобильных устройств
+    // Адаптивность
     window.addEventListener('resize', handleResize);
     handleResize();
 }
 
-// Обработка изменения размера окна
 function handleResize() {
     const isMobile = window.innerWidth <= 768;
     document.body.classList.toggle('mobile-view', isMobile);
@@ -226,6 +245,17 @@ function formatCurrency(amount) {
 // Добавляем CSS анимации
 const style = document.createElement('style');
 style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
     @keyframes slideInLeft {
         from {
             transform: translateX(-100%);
@@ -259,7 +289,16 @@ style.textContent = `
         font-size: 11px;
     }
 
-    /* Мобильные стили для уведомлений */
+    .reminder-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 10px;
+    }
+
     @media (max-width: 768px) {
         #reminders-container {
             top: 10px !important;
@@ -285,4 +324,4 @@ window.formatTime = formatTime;
 window.formatDateTime = formatDateTime;
 window.formatCurrency = formatCurrency;
 
-console.log('🎯 АИС Планирование мероприятий ready in demo mode!');
+console.log('АИС Планирование мероприятий ready!');

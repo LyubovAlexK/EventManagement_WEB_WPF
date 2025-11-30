@@ -25,6 +25,10 @@ public class AuthController : ControllerBase
         if (user == null)
             return Unauthorized(new { message = "Неверный логин или пароль" });
 
+        // Проверка роли
+        if (user.Role?.RoleName == "Организатор")
+            return Unauthorized(new { message = "Вход ограничен для организаторов" });
+
         var response = new LoginResponse
         {
             UserId = user.UserId,

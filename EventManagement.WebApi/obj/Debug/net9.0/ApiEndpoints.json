@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "EventManagement.WebApi.Controllers.AuthResponse",
+        "Type": "EventManagement.WebApi.Controllers.LoginResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -72,6 +72,178 @@
     ]
   },
   {
+    "ContainingType": "EventManagement.WebApi.Controllers.CategoriesController",
+    "Method": "GetCategory",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.EventCategories",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.CategoriesController",
+    "Method": "PutCategory",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "category",
+        "Type": "EventManagement.Data.EventCategories",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.CategoriesController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.ClientsController",
+    "Method": "GetClients",
+    "RelativePath": "api/Clients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.WebApi.Controllers.ClientDto, EventManagement.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.ClientsController",
+    "Method": "PostClient",
+    "RelativePath": "api/Clients",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "client",
+        "Type": "EventManagement.Data.Clients",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.Clients",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.ClientsController",
+    "Method": "PutClient",
+    "RelativePath": "api/Clients/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "client",
+        "Type": "EventManagement.Data.Clients",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.ClientsController",
+    "Method": "DeleteClient",
+    "RelativePath": "api/Clients/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.ClientsController",
+    "Method": "GetClientsByEvent",
+    "RelativePath": "api/Clients/by-event/{eventId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.Data.Clients, EventManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "EventManagement.WebApi.Controllers.EventsController",
     "Method": "GetEvents",
     "RelativePath": "api/Events",
@@ -81,7 +253,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.WebApi.Controllers.EventDto, EventManagement.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -133,7 +305,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "EventManagement.Data.Event",
+        "Type": "EventManagement.WebApi.Controllers.EventDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -181,16 +353,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "EventManagement.WebApi.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "EventManagement.WebApi.Controllers.RolesController",
+    "Method": "GetRoles",
+    "RelativePath": "api/Roles",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.WebApi.WeatherForecast, EventManagement.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.Data.Role, EventManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -198,7 +370,261 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.RolesController",
+    "Method": "PostRole",
+    "RelativePath": "api/Roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "EventManagement.Data.Role",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.Role",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.RolesController",
+    "Method": "PutRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "role",
+        "Type": "EventManagement.Data.Role",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.RolesController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.UsersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.WebApi.Controllers.UserDto, EventManagement.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.UsersController",
+    "Method": "PostUser",
+    "RelativePath": "api/Users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "EventManagement.Data.Users",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.Users",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.UsersController",
+    "Method": "PutUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "EventManagement.Data.Users",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.UsersController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.VenuesController",
+    "Method": "GetVenues",
+    "RelativePath": "api/Venues",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EventManagement.Data.Venues, EventManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.VenuesController",
+    "Method": "PostVenue",
+    "RelativePath": "api/Venues",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "venue",
+        "Type": "EventManagement.Data.Venues",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.Venues",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.VenuesController",
+    "Method": "GetVenue",
+    "RelativePath": "api/Venues/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EventManagement.Data.Venues",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.VenuesController",
+    "Method": "PutVenue",
+    "RelativePath": "api/Venues/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "venue",
+        "Type": "EventManagement.Data.Venues",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventManagement.WebApi.Controllers.VenuesController",
+    "Method": "DeleteVenue",
+    "RelativePath": "api/Venues/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

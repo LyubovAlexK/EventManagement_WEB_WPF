@@ -7,6 +7,7 @@ D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\Eve
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.AssemblyInfoInputs.cache
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.AssemblyInfo.cs
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.csproj.CoreCompileInputs.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.sourcelink.json
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.dll
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\refint\EventManagement.Data.dll
 D:\DITI\тех\EventManagementSolution\EventManagement.Data\obj\Debug\net9.0\EventManagement.Data.pdb

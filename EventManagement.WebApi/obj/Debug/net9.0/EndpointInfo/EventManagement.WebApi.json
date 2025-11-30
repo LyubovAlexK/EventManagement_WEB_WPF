@@ -35,17 +35,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthResponse"
+                  "$ref": "#/components/schemas/LoginResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthResponse"
+                  "$ref": "#/components/schemas/LoginResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthResponse"
+                  "$ref": "#/components/schemas/LoginResponse"
                 }
               }
             }
@@ -137,6 +137,303 @@
         }
       }
     },
+    "/api/Categories/{id}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventCategories"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventCategories"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventCategories"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventCategories"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventCategories"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventCategories"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Clients"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Clients"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Clients"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/by-event/{eventId}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Clients"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Clients"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Clients"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/{id}": {
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Clients"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Events": {
       "get": {
         "tags": [
@@ -149,19 +446,25 @@
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
                 }
               }
             }
@@ -237,17 +540,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               }
             }
@@ -316,12 +619,11 @@
         }
       }
     },
-    "/WeatherForecast": {
+    "/api/Roles": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "Roles"
         ],
-        "operationId": "GetWeatherForecast",
         "responses": {
           "200": {
             "description": "OK",
@@ -330,7 +632,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Role"
                   }
                 }
               },
@@ -338,7 +640,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Role"
                   }
                 }
               },
@@ -346,11 +648,452 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Role"
                   }
                 }
               }
             }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/{id}": {
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/{id}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Venues": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Venues"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Venues"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Venues"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Venues"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Venues/{id}": {
+      "get": {
+        "tags": [
+          "Venues"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Venues"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Venues"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Venues"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Venues"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -358,12 +1101,20 @@
   },
   "components": {
     "schemas": {
-      "AuthResponse": {
+      "ClientDto": {
         "type": "object",
         "properties": {
-          "userId": {
+          "clientId": {
             "type": "integer",
             "format": "int32"
+          },
+          "eventId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eventName": {
+            "type": "string",
+            "nullable": true
           },
           "lastName": {
             "type": "string",
@@ -377,23 +1128,11 @@
             "type": "string",
             "nullable": true
           },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
           "phone": {
-            "type": "string",
-            "nullable": true
-          },
-          "specialty": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "nullable": true
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "roleName": {
             "type": "string",
             "nullable": true
           }
@@ -531,6 +1270,79 @@
         },
         "additionalProperties": false
       },
+      "EventDto": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eventName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateTimeStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateTimeFinish": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "venueId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "venueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "estimatedBudget": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "actualBudget": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxNumOfGuests": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "clientCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "type": "object",
         "properties": {
@@ -539,6 +1351,48 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialty": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleName": {
             "type": "string",
             "nullable": true
           }
@@ -561,6 +1415,48 @@
             "items": {
               "$ref": "#/components/schemas/Users"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialty": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -646,29 +1542,6 @@
             "items": {
               "$ref": "#/components/schemas/Event"
             },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
-            "type": "string",
             "nullable": true
           }
         },

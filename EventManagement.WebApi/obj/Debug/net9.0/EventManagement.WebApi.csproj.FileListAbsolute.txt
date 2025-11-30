@@ -142,15 +142,12 @@ D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\E
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.csproj.CoreCompileInputs.cache
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.MvcApplicationPartsAssemblyInfo.cs
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.MvcApplicationPartsAssemblyInfo.cache
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.sourcelink.json
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\rjimswa.dswa.cache.json
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\scopedcss\bundle\EventManagement.WebApi.styles.css
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\vi9qn6bmus-bt7um9znd9.gz
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\uy6ki8wvyt-gawdw4d4g8.gz
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\rfgp9a9s74-ft6feozjxm.gz
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\wdbn30gwk4-d8dqb8jowa.gz
-D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\6me0s8d0we-s9cgdnpxq9.gz
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\uy6ki8wvyt-6c9s09bkt0.gz
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\staticwebassets.build.json
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\staticwebassets.development.json
@@ -162,3 +159,7 @@ D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\r
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.pdb
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\EventManagement.WebApi.genruntimeconfig.cache
 D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\ref\EventManagement.WebApi.dll
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\rfgp9a9s74-ex4aguijp1.gz
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\wdbn30gwk4-17hjwzp4c1.gz
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\vi9qn6bmus-22ange7297.gz
+D:\DITI\тех\EventManagementSolution\EventManagement.WebApi\obj\Debug\net9.0\compressed\6me0s8d0we-oeyhpgc52f.gz

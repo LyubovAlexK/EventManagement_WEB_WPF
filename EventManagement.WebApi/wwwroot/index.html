@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АИС Планирование мероприятий - Demo</title>
+    <title>АИС Планирование мероприятий</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,11 +13,11 @@
         <div class="auth-container">
             <div class="auth-header">
                 <h1>АИС Планирование мероприятий</h1>
-                <p>Демо-режим</p>
+                <p>Войдите в систему</p>
             </div>
             <div class="auth-form">
-                <input type="text" id="login" placeholder="Логин" value="demo">
-                <input type="password" id="password" placeholder="Пароль" value="demo">
+                <input type="text" id="login" placeholder="Логин" value="">
+                <input type="password" id="password" placeholder="Пароль" value="">
                 <button id="login-btn" class="btn-primary">
                     <img src="img/events.png" alt="" class="btn-icon">
                     Войти
@@ -32,7 +32,6 @@
             <div class="header-top">
                 <div class="header-left">
                     <h1>АИС Планирование мероприятий</h1>
-                    <span class="demo-badge">Демо-режим</span>
                 </div>
                 <div class="header-right">
                     <span id="user-fullname">Пользователь</span>
@@ -42,7 +41,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- Навигация в header -->
             <nav class="main-nav">
                 <button class="nav-btn active" data-panel="events-cards">
@@ -90,7 +89,7 @@
                     </button>
                     <button id="check-events-btn" class="btn-info">
                         <img src="img/notification.png" alt="Напоминания" class="btn-icon">
-                        Тест напоминания
+                        Проверить напоминания
                     </button>
                 </div>
                 <div class="search-container">
@@ -178,6 +177,7 @@
                         </h3>
                         <ul id="user-events-list">
                             <!-- Список мероприятий пользователя -->
+                            <li>Загрузка...</li>
                         </ul>
                     </div>
                 </div>

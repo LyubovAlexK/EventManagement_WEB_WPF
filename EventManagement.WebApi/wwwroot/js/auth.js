@@ -1,6 +1,7 @@
 class AuthManager {
     constructor() {
         this.currentUser = null;
+        this.apiBaseUrl = window.location.origin + '/api';
         this.init();
     }
 
@@ -12,14 +13,13 @@ class AuthManager {
     bindEvents() {
         document.getElementById('login-btn').addEventListener('click', () => this.login());
         document.getElementById('logout-btn').addEventListener('click', () => this.logout());
-        
         document.getElementById('password').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.login();
         });
     }
 
-    login() {
-        const login = document.getElementById('login').value;
+    async login() {
+        const login = document.getElementById('login').value.trim();
         const password = document.getElementById('password').value;
 
         if (!login || !password) {
@@ -27,68 +27,72 @@ class AuthManager {
             return;
         }
 
-        // Демо-режим аутентификации
-        this.useDemoMode(login, password);
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/Auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ login, password })
+            });
+
+            if (response.ok) {
+                const user = await response.json();
+                // Нормализуем пользователя
+                this.currentUser = this.normalizeUserData(user);
+                this.showApp();
+                this.showMessage('Успешный вход!', 'success');
+            } else {
+                const error = await response.json();
+                this.showMessage(error.message || 'Ошибка авторизации', 'error');
+                if (error.message === "Вход ограничен для организаторов") {
+                    this.showAccessDenied();
+                }
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            this.showMessage('Ошибка соединения с сервером', 'error');
+        }
     }
 
-    // Демо-режим аутентификации
-    useDemoMode(login, password) {
-        const demoUsers = [
-            { 
-                UserId: 1, 
-                LastName: "Демо", 
-                Name: "Пользователь", 
-                MiddleName: "Тестовый", 
-                Phone: "+7 (999) 000-00-00", 
-                Specialty: "Менеджер мероприятий", 
-                Login: "demo", 
-                Password: "demo", 
-                RoleId: 2, 
-                RoleName: "Менеджер" 
-            },
-            { 
-                UserId: 2, 
-                LastName: "Иванов", 
-                Name: "Иван", 
-                MiddleName: "Иванович", 
-                Phone: "+7 (999) 111-11-11", 
-                Specialty: "Старший менеджер", 
-                Login: "ivanov", 
-                Password: "123", 
-                RoleId: 2, 
-                RoleName: "Менеджер" 
-            }
-        ];
+    // Нормализация данных пользователя
+    normalizeUserData(user) {
+        return {
+            userId: user.UserId || user.userId,
+            lastName: user.LastName || user.lastName,
+            name: user.Name || user.name,
+            middleName: user.MiddleName || user.middleName,
+            phone: user.Phone || user.phone,
+            specialty: user.Specialty || user.specialty,
+            login: user.Login || user.login,
+            roleId: user.RoleId || user.roleId,
+            roleName: user.RoleName || user.roleName
+        };
+    }
 
-        const user = demoUsers.find(u => u.Login === login && u.Password === password);
-        
-        if (user) {
-            this.currentUser = user;
-            this.showApp();
-            this.showMessage('Успешный вход в демо-режиме!', 'success');
-        } else {
-            this.showMessage('Неверный логин или пароль!', 'error');
-        }
+    showAccessDenied() {
+        const authContainer = document.querySelector('.auth-container');
+        authContainer.innerHTML = `
+            <div class="access-denied">
+                <h1>Доступ ограничен</h1>
+                <p>Вход в систему для организаторов временно недоступен</p>
+                <button onclick="location.reload()" class="btn-primary">
+                    <img src="img/refresh.png" alt="Обновить" class="btn-icon">
+                    Вернуться к авторизации
+                </button>
+            </div>
+        `;
     }
 
     logout() {
         this.currentUser = null;
+        localStorage.removeItem('currentUser');
         this.showAuth();
         this.showMessage('Вы вышли из системы', 'info');
         this.clearAllNotifications();
-        
-        // Сбрасываем выбранное мероприятие
-        if (window.eventsManager) {
-            window.eventsManager.selectedEvent = null;
-            window.eventsManager.updateEditButton();
-        }
     }
 
     clearAllNotifications() {
         const notifications = document.querySelectorAll('.notification, .event-reminder, #reminders-container');
-        notifications.forEach(notification => {
-            notification.remove();
-        });
+        notifications.forEach(notification => notification.remove());
     }
 
     checkAuthStatus() {
@@ -96,7 +100,7 @@ class AuthManager {
         if (savedUser) {
             try {
                 const user = JSON.parse(savedUser);
-                this.currentUser = user;
+                this.currentUser = this.normalizeUserData(user);
                 this.showApp();
             } catch (e) {
                 console.error('Error parsing saved user:', e);
@@ -109,120 +113,134 @@ class AuthManager {
     showAuth() {
         document.getElementById('auth-page').classList.add('active');
         document.getElementById('app-page').classList.remove('active');
-        localStorage.removeItem('currentUser');
-        
-        // Очищаем поля формы
-        document.getElementById('login').value = 'demo';
-        document.getElementById('password').value = 'demo';
+        document.getElementById('login').value = '';
+        document.getElementById('password').value = '';
     }
 
     showApp() {
+        console.log('=== SHOW APP ===');
         document.getElementById('auth-page').classList.remove('active');
         document.getElementById('app-page').classList.add('active');
-        
+
         if (this.currentUser) {
             localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+            console.log('User saved to localStorage:', this.currentUser);
         }
-        
+
         this.updateUI();
-        
-        // Загружаем мероприятия после инициализации eventsManager
-        if (window.eventsManager) {
-            window.eventsManager.loadEvents();
-        }
-        
-        this.showEventsCardsPanel(); // Теперь по умолчанию открываем карточки
+        this.loadUserProfileData();
+
+        // Показываем панель мероприятий по умолчанию
+        setTimeout(() => {
+            if (window.eventsManager && window.eventsManager.showPanel) {
+                window.eventsManager.showPanel('events-cards');
+            }
+        }, 1000);
     }
 
     updateUI() {
         this.updateUserProfile();
-        this.updateButtonText();
-        this.checkUserRole();
-    }
-
-    // Теперь по умолчанию открываем панель с карточками
-    showEventsCardsPanel() {
-        const eventsPanel = document.getElementById('events-panel');
-        const eventsCardsPanel = document.getElementById('events-cards-panel');
-        const profilePanel = document.getElementById('profile-panel');
-        
-        // Скрываем все панели
-        if (eventsPanel) eventsPanel.classList.remove('active');
-        if (eventsCardsPanel) eventsCardsPanel.classList.remove('active');
-        if (profilePanel) profilePanel.classList.remove('active');
-        
-        // Показываем только панель мероприятий (карточки)
-        if (eventsCardsPanel) eventsCardsPanel.classList.add('active');
-        
-        // Обновляем заголовок
-        const titleElement = document.getElementById('current-panel-title');
-        if (titleElement) titleElement.textContent = 'Мероприятия';
-        
-        // Активируем кнопку карточек в навигации
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        const eventsCardsBtn = document.querySelector('[data-panel="events-cards"]');
-        if (eventsCardsBtn) eventsCardsBtn.classList.add('active');
     }
 
     updateUserProfile() {
         if (!this.currentUser) return;
 
-        const fullName = `${this.currentUser.LastName} ${this.currentUser.Name} ${this.currentUser.MiddleName || ''}`.trim();
-        
-        // Обновляем имя пользователя в интерфейсе
+        const fullName = `${this.currentUser.lastName} ${this.currentUser.name} ${this.currentUser.middleName || ''}`.trim();
+
         const userFullnameElement = document.getElementById('user-fullname');
         const userFullnameProfileElement = document.getElementById('user-fullname-profile');
-        
+
         if (userFullnameElement) userFullnameElement.textContent = fullName;
         if (userFullnameProfileElement) userFullnameProfileElement.textContent = fullName;
-        
-        document.getElementById('user-specialty').textContent = this.currentUser.Specialty || 'Менеджер';
-        document.getElementById('user-phone').textContent = this.currentUser.Phone || 'Не указан';
-        
-        this.loadUserEvents();
+
+        const specialtyElement = document.getElementById('user-specialty');
+        const phoneElement = document.getElementById('user-phone');
+
+        if (specialtyElement) specialtyElement.textContent = this.currentUser.specialty || 'Не указана';
+        if (phoneElement) phoneElement.textContent = this.currentUser.phone || 'Не указан';
     }
 
-    updateButtonText() {
-        // Обновляем текст кнопок
-        const addBtn = document.getElementById('add-event-btn');
-        const editBtn = document.getElementById('edit-event-btn');
-        
-        if (addBtn) {
-            addBtn.innerHTML = `
-                <img src="img/plus.png" alt="Добавить" class="btn-icon">
-                Добавить
-            `;
-        }
-        
-        if (editBtn) {
-            editBtn.innerHTML = `
-                <img src="img/editl.png" alt="Редактировать" class="btn-icon">
-                Редактировать
-            `;
-        }
-    }
-
-    checkUserRole() {
-        // Скрываем/показываем элементы в зависимости от роли
-        const isManager = this.currentUser && this.currentUser.RoleName === 'Менеджер';
-        // Можно добавить дополнительную логику для разных ролей
-    }
-
-    async loadUserEvents() {
+    async loadUserProfileData() {
         try {
-            // В демо-режиме просто показываем тестовые данные
-            document.getElementById('user-events-count').textContent = '2';
-            const eventsList = document.getElementById('user-events-list');
-            if (eventsList) {
-                eventsList.innerHTML = `
-                    <li>Техническая конференция 2024 (Согласован)</li>
-                    <li>Корпоративный тренинг (В обработке)</li>
-                `;
+            if (!this.currentUser) return;
+
+            console.log('Loading user profile data for user:', this.currentUser.userId);
+
+            const response = await fetch(`${this.apiBaseUrl}/Events`);
+            if (response.ok) {
+                const events = await response.json();
+                // Нормализуем события для профиля
+                const normalizedEvents = events.map(event => ({
+                    eventId: event.EventId || event.eventId,
+                    eventName: event.EventName || event.eventName,
+                    description: event.Description || event.description,
+                    dateTimeStart: event.DateTimeStart || event.dateTimeStart,
+                    dateTimeFinish: event.DateTimeFinish || event.dateTimeFinish,
+                    categoryId: event.CategoryId || event.categoryId,
+                    categoryName: event.CategoryName || event.categoryName,
+                    venueId: event.VenueId || event.venueId,
+                    venueName: event.VenueName || event.venueName,
+                    userId: event.UserId || event.userId,
+                    userName: event.UserName || event.userName,
+                    status: event.Status || event.status,
+                    estimatedBudget: event.EstimatedBudget || event.estimatedBudget,
+                    actualBudget: event.ActualBudget || event.actualBudget,
+                    maxNumOfGuests: event.MaxNumOfGuests || event.maxNumOfGuests
+                }));
+
+                const userEvents = normalizedEvents.filter(event => event.userId === this.currentUser.userId);
+                console.log('User events:', userEvents);
+
+                // Обновляем счетчик мероприятий
+                const eventsCountElement = document.getElementById('user-events-count');
+                if (eventsCountElement) {
+                    eventsCountElement.textContent = userEvents.length;
+                }
+
+                // Обновляем список последних мероприятий
+                const eventsList = document.getElementById('user-events-list');
+                if (eventsList) {
+                    if (userEvents.length === 0) {
+                        eventsList.innerHTML = '<li>Нет мероприятий</li>';
+                    } else {
+                        eventsList.innerHTML = userEvents
+                            .slice(0, 5)
+                            .map(event => `
+                                <li>
+                                    <strong>${this.escapeHtml(event.eventName)}</strong><br>
+                                    <small>${this.formatDateTime(event.dateTimeStart)} • ${event.status}</small>
+                                </li>
+                            `)
+                            .join('');
+                    }
+                }
+            } else {
+                console.error('Failed to load events for profile');
             }
         } catch (error) {
-            console.error('Error loading user events:', error);
+            console.error('Error loading user profile data:', error);
+            const eventsCountElement = document.getElementById('user-events-count');
+            if (eventsCountElement) eventsCountElement.textContent = '0';
+            const eventsList = document.getElementById('user-events-list');
+            if (eventsList) eventsList.innerHTML = '<li>Ошибка загрузки</li>';
+        }
+    }
+
+    // Вспомогательные методы
+    escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    formatDateTime(dateString) {
+        if (!dateString) return 'Не указано';
+        try {
+            const date = new Date(dateString);
+            return date.toLocaleString('ru-RU');
+        } catch {
+            return 'Неверная дата';
         }
     }
 
@@ -230,11 +248,11 @@ class AuthManager {
         if (typeof showNotification === 'function') {
             showNotification(message, type);
         } else {
-            // Fallback если функция showNotification не доступна
             alert(`${type.toUpperCase()}: ${message}`);
         }
     }
 }
 
-// Создаем глобальный экземпляр AuthManager
+// Инициализация глобального объекта
 const authManager = new AuthManager();
+window.authManager = authManager;
